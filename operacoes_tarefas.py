@@ -63,3 +63,47 @@ def deletar_tarefa(id_tarefa):
     finally:
         if conn:
             conn.close()
+
+def atualizar_descricao_tarefa(id_tarefa, nova_descricao):
+    conn = None
+
+    try:
+        conn = conectar()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            "UPDATE tarefas SET descricao = %s WHERE id = %s",
+            (nova_descricao, id_tarefa)
+    )
+
+        conn.commit()
+        print("Tarefa alterada com sucesso!")
+
+    except Exception as e:
+        print("Erro ao atualizar tarefa!")
+
+    finally:
+        if conn:
+            conn.close()
+
+def atualizar_status_tarefa(id_tarefa, concluida):
+    conn = None
+
+    try:
+        conn = conectar()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            "UPDATE tarefas SET concluida = %s WHERE id = %s",
+            (concluida, id_tarefa)
+    )
+
+        conn.commit()
+        print("Status da tarefa alterada com sucesso!")
+
+    except Exception as e:
+        print("Erro ao atualizar status da tarefa!")
+
+    finally:
+        if conn:
+            conn.close()
