@@ -18,6 +18,29 @@ def listar_tarefas():
         if conn:
             conn.close()
 
+def cadastrar_tarefa(descricao, projeto_id):
+    conn = None
+
+    try:
+
+        conn = conectar()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            "INSERT INTO tarefas (descricao, projeto_id) VALUES (%s, %s)",
+            (descricao, projeto_id)
+        )
+
+        conn.commit()
+        print("Tarefa cadastrada com sucesso!")
+
+    except Exception as e:
+        print("Erro ao cadastrar tarefa!")
+
+    finally:
+        if conn:
+            conn.close()
+
 def deletar_tarefa(id_tarefa):
     conn = None
 
