@@ -33,24 +33,57 @@ while True:
     match escolha:
 
         case 0:
-            print("Sistema finalizado! Até a próxima!")
+            print("\nSistema finalizado! Até a próxima!")
             break
 
         case 1:
             for funcionario in listar_funcionarios():
                 print("=-" *15 )
+                print("\n Tabela de Funcionários: \n")
                 print(
                     f"\n ID: {funcionario[0]} | Nome: {funcionario[1]} | Cargo: {funcionario[2]} | Salário: {funcionario[3]} | Departamento: {funcionario[4]} | Email: {funcionario[5]}"
                 )
 
         case 2:
             for projeto in listar_projetos():
+                print("\n Tabela de Projetos: \n")
                 print(
                     f"\n ID: {projeto[0]} | Título: {projeto[1]} | Funcionário ID: {projeto[2]} "
                 )
 
         case 3:
             for tarefa in listar_tarefas():
+                print("\n Tabela de Tarefas: \n")
                 print(
                     f"\n ID: {tarefa[0]} | Descrição: {tarefa[1]} | Concluída: {tarefa[2]} | Projeto ID: {tarefa[3]}  "
                 )
+
+        case 4:
+
+            print("\n Cadastrar Funcionário: \n")
+
+            nome = input("Nome: ")
+            cargo = input("Cargo: ")
+            salario = float(input("Salário: "))
+            departamento = input("Departamento: ")
+            email = input("Email: ")
+
+            cadastrar_funcionario(nome, cargo, salario, departamento, email)
+
+        case 5:
+
+            print("\n Cadastrar Projeto: \n")
+
+            titulo = input("Título: ")
+            funcionario_id = int(input("Id Funcionário: "))
+
+            cadastrar_projetos(titulo, funcionario_id)
+
+        case 6:
+
+            print("\n Cadastrar Tarefa: \n")
+
+            descricao = input("Descrição: ")
+            projeto_id = int(input("Id projeto: "))
+
+            cadastrar_tarefa(descricao, projeto_id)
