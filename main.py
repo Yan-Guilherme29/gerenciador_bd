@@ -130,6 +130,53 @@ while True:
             else:
                 print("Digite apenas 1 para Sim ou 0 para Não!")
 
+        case 11:
 
+            print("\n Deletar funcionário: \n")
 
+            id_funcionario = int(input("Id do funcionário: "))
 
+            opcao = int(input("Tem certeza que deseja deletar esse funcionário? (Sim = 1 | Não = 0): "))
+
+            if opcao == 1:
+                deletar_funcionario(id_funcionario)
+
+            elif opcao == 0:
+                print("\n Exclusão cancelada! \n")
+
+            else:
+                print("\n Digite apenas 1 para Sim ou 0 para Não! \n")
+
+        case 12:
+
+            print("\n Deletar projeto: \n")
+
+            id_projeto = int(input("Id do projeto: "))
+
+            opcao = int(input("Tem certeza que deseja deletar esse projeto? (Sim = 1 | Não = 0): "))
+
+            if opcao == 1:
+                deletar_projeto(id_projeto)
+
+            elif opcao == 0:
+                print("\n Exclusão cancelada! \n")
+
+            else:
+                print("\n Digite apenas 1 para Sim ou 0 para Não! \n")
+
+        case 13:
+
+            print("\n Deletar tarefa: \n")
+
+            id_tarefa = int(input("Id da tarefa: "))
+
+            opcao = int(input("Tem certeza que deseja deletar essa tarefa? (Sim = 1 | Não = 0): "))
+
+            if opcao == 1:
+                deletar_tarefa(id_tarefa)
+
+            elif opcao == 0:
+                print("\n Exclusão cancelada! \n")
+
+            else:
+                print("\n Digite apenas 1 para Sim ou 0 para Não! \n")
