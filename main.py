@@ -15,7 +15,7 @@ while True:
     print("5 - Cadastrar projeto")
     print("6 - Cadastrar tarefa")
     print("=-" * 15)
-    print("7 - Atualizar funcionário")
+    print("7 - Atualizar salário")
     print("8 - Atualizar projeto")
     print("9 - Atualizar descrição da tarefa")
     print("10 - Atualizar status da tarefa")
@@ -75,7 +75,7 @@ while True:
             print("\n Cadastrar Projeto: \n")
 
             titulo = input("Título: ")
-            funcionario_id = int(input("Id Funcionário: "))
+            funcionario_id = int(input("Id do Funcionário: "))
 
             cadastrar_projetos(titulo, funcionario_id)
 
@@ -84,6 +84,52 @@ while True:
             print("\n Cadastrar Tarefa: \n")
 
             descricao = input("Descrição: ")
-            projeto_id = int(input("Id projeto: "))
+            projeto_id = int(input("Id do projeto: "))
 
             cadastrar_tarefa(descricao, projeto_id)
+
+        case 7:
+
+            print("\n Atualizar Salário: \n")
+
+            id_funcionario = int(input("Id do funcionário: "))
+            novo_salario = float(input("Novo salário: "))
+
+            atualizar_salario(id_funcionario, novo_salario)
+
+        case 8:
+
+            print("\n Atualizar Projeto: \n")
+
+            id_projeto = int(input("Id do projeto: "))
+            novo_titulo = input("Novo título: ")
+
+            atualizar_projeto(id_projeto, novo_titulo)
+
+        case 9:
+
+            print("\n Atualizar descrição da tarefa: \n")
+
+            id_tarefa = int(input("Id da tarefa: "))
+            nova_descricao = input("Nova descrição: ")
+
+
+            atualizar_descricao_tarefa(id_tarefa, nova_descricao)
+
+        case 10:
+            print("\n Atualizar status da tarefa: \n")
+
+            id_tarefa = int(input("Id da tarefa: "))
+            opcao = int(input("Concluída? (Sim = 1 | Não = 0): "))
+
+            if opcao in (0, 1):
+                concluida = opcao == 1
+
+                atualizar_status_tarefa(id_tarefa, concluida)
+
+            else:
+                print("Digite apenas 1 para Sim ou 0 para Não!")
+
+
+
+
