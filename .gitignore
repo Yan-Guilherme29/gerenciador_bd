@@ -1,0 +1,12 @@
+# Ambiente virtual
+.venv/
+
+# Variáveis de ambiente
+.env
+
+# Bytecode Python
+__pycache__/
+*.pyc
+
+# PyCharm
+.idea/
