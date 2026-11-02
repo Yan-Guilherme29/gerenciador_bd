@@ -14,7 +14,7 @@ def listar_funcionarios():
         return resultado
 
     except Exception as e:
-        print("Erro ao listar funcionários!")
+        print("\nErro ao listar funcionários!")
 
     finally:
         if conn:
@@ -35,10 +35,10 @@ def cadastrar_funcionario(nome, cargo, salario, departamento, email):
         )
 
         conn.commit()
-        print("Funcionário cadastrado com sucesso!")
+        print("\nFuncionário cadastrado com sucesso!")
 
     except Exception as e:
-        print("Erro ao cadastrar funcionário!")
+        print("\nErro ao cadastrar funcionário!")
 
     finally:
         if conn:
@@ -60,10 +60,10 @@ def atualizar_salario(id_funcionario, novo_salario):
         )
 
         conn.commit()
-        print("Salário alterado com sucesso!")
+        print("\nSalário alterado com sucesso!")
 
     except Exception as e:
-        print("Erro ao atualizar salário!")
+        print("\nErro ao atualizar salário!")
 
     finally:
         if conn:
@@ -85,11 +85,11 @@ def deletar_funcionario(id_funcionario):
         )
 
         conn.commit()
-        print("Funcionário deletado com sucesso!")
+        print("\nFuncionário deletado com sucesso!")
 
 
     except Exception as e:
-        print("Erro ao deletar funcionário!")
+        print("\nErro ao deletar funcionário!")
 
     finally:
         if conn:

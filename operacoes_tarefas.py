@@ -12,7 +12,7 @@ def listar_tarefas():
         return resultado
 
     except Exception as e:
-        print("Erro ao listar tarefas!")
+        print("\nErro ao listar tarefas!")
 
     finally:
         if conn:
@@ -32,10 +32,10 @@ def cadastrar_tarefa(descricao, projeto_id):
         )
 
         conn.commit()
-        print("Tarefa cadastrada com sucesso!")
+        print("\nTarefa cadastrada com sucesso!")
 
     except Exception as e:
-        print("Erro ao cadastrar tarefa!")
+        print("\nErro ao cadastrar tarefa!")
 
     finally:
         if conn:
@@ -55,10 +55,10 @@ def deletar_tarefa(id_tarefa):
         )
 
         conn.commit()
-        print("Tarefa deletada com sucesso!")
+        print("\nTarefa deletada com sucesso!")
 
     except Exception as e:
-        print("Erro ao deletar tarefa!")
+        print("\nErro ao deletar tarefa!")
 
     finally:
         if conn:
@@ -77,10 +77,10 @@ def atualizar_descricao_tarefa(id_tarefa, nova_descricao):
     )
 
         conn.commit()
-        print("Tarefa alterada com sucesso!")
+        print("\nTarefa alterada com sucesso!")
 
     except Exception as e:
-        print("Erro ao atualizar tarefa!")
+        print("\nErro ao atualizar tarefa!")
 
     finally:
         if conn:
@@ -99,10 +99,10 @@ def atualizar_status_tarefa(id_tarefa, concluida):
     )
 
         conn.commit()
-        print("Status da tarefa alterada com sucesso!")
+        print("\nStatus da tarefa alterada com sucesso!")
 
     except Exception as e:
-        print("Erro ao atualizar status da tarefa!")
+        print("\nErro ao atualizar status da tarefa!")
 
     finally:
         if conn:

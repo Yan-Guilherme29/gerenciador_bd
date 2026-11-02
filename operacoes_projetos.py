@@ -13,7 +13,7 @@ def listar_projetos():
         return resultado
 
     except Exception as e:
-        print("Erro ao listar projetos")
+        print("\nErro ao listar projetos")
 
     finally:
         if conn:
@@ -34,10 +34,10 @@ def cadastrar_projetos(titulo, funcionario_id):
         )
 
         conn.commit()
-        print("Projeto cadastrado com sucesso!")
+        print("\nProjeto cadastrado com sucesso!")
 
     except Exception as e:
-        print("Erro ao cadastrar projeto!")
+        print("\nErro ao cadastrar projeto!")
 
     finally:
         if conn:
@@ -56,10 +56,10 @@ def atualizar_projeto(id_projeto, novo_titulo):
         )
 
         conn.commit()
-        print("Projeto alterado com sucesso!")
+        print("\nProjeto alterado com sucesso!")
 
     except Exception as e:
-        print("Erro ao atualizar projeto!")
+        print("\nErro ao atualizar projeto!")
 
     finally:
         if conn:
@@ -80,11 +80,11 @@ def deletar_projeto(id_projeto):
         )
 
         conn.commit()
-        print("Projeto deletado com sucesso!")
+        print("\nProjeto deletado com sucesso!")
 
 
     except Exception as e:
-        print("Erro ao deletar projeto!")
+        print("\nErro ao deletar projeto!")
 
     finally:
         if conn:
