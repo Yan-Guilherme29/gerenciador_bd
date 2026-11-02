@@ -8,7 +8,7 @@ def listar_projetos():
         conn = conectar()
         cursor = conn.cursor()
 
-        cursor.execute("SELECT * FROM projetos")
+        cursor.execute("SELECT * FROM projetos ORDER BY id")
         resultado = cursor.fetchall()
         return resultado
 

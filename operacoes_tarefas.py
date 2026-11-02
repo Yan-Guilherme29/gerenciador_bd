@@ -7,7 +7,7 @@ def listar_tarefas():
         conn = conectar()
         cursor = conn.cursor()
 
-        cursor.execute("SELECT * FROM tarefas")
+        cursor.execute("SELECT * FROM tarefas ORDER BY id")
         resultado = cursor.fetchall()
         return resultado
 

@@ -9,7 +9,7 @@ def listar_funcionarios():
         conn = conectar()
         cursor = conn.cursor()
 
-        cursor.execute("SELECT * FROM funcionarios")
+        cursor.execute("SELECT * FROM funcionarios ORDER BY id")
         resultado = cursor.fetchall()
         return resultado
 
