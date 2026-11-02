@@ -180,3 +180,6 @@ while True:
 
             else:
                 print("\n Digite apenas 1 para Sim ou 0 para Não! \n")
+
+        case _:
+            print("\nOpção inválida! Tente um número de 0 até 13 !\n")
