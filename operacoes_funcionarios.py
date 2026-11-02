@@ -60,7 +60,11 @@ def atualizar_salario(id_funcionario, novo_salario):
         )
 
         conn.commit()
-        print("\nSalário alterado com sucesso!")
+
+        if cursor.rowcount == 0:
+            print("\nRegistro não encontrado! Tente novamente!")
+        else:
+            print("\nSalário alterado com sucesso!")
 
     except Exception as e:
         print("\nErro ao atualizar salário!")
@@ -68,7 +72,6 @@ def atualizar_salario(id_funcionario, novo_salario):
     finally:
         if conn:
             conn.close()
-
 
 def deletar_funcionario(id_funcionario):
     conn = None
@@ -85,7 +88,11 @@ def deletar_funcionario(id_funcionario):
         )
 
         conn.commit()
-        print("\nFuncionário deletado com sucesso!")
+
+        if cursor.rowcount == 0:
+            print("\nRegistro não encontrado! Tente novamente!")
+        else:
+            print("\nFuncionário deletado com sucesso!")
 
 
     except Exception as e:

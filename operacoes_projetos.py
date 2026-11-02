@@ -56,7 +56,11 @@ def atualizar_projeto(id_projeto, novo_titulo):
         )
 
         conn.commit()
-        print("\nProjeto alterado com sucesso!")
+
+        if cursor.rowcount == 0:
+            print("\nRegistro não encontrado! Tente novamente!")
+        else:
+            print("\nProjeto alterado com sucesso!")
 
     except Exception as e:
         print("\nErro ao atualizar projeto!")
@@ -80,7 +84,11 @@ def deletar_projeto(id_projeto):
         )
 
         conn.commit()
-        print("\nProjeto deletado com sucesso!")
+
+        if cursor.rowcount == 0:
+            print("\nRegistro não encontrado! Tente novamente!")
+        else:
+            print("\nProjeto deletado com sucesso!")
 
 
     except Exception as e:

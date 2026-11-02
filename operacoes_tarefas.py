@@ -1,5 +1,6 @@
 from conexao import conectar
 
+
 def listar_tarefas():
     conn = None
 
@@ -17,6 +18,7 @@ def listar_tarefas():
     finally:
         if conn:
             conn.close()
+
 
 def cadastrar_tarefa(descricao, projeto_id):
     conn = None
@@ -41,28 +43,6 @@ def cadastrar_tarefa(descricao, projeto_id):
         if conn:
             conn.close()
 
-def deletar_tarefa(id_tarefa):
-    conn = None
-
-    try:
-        conn = conectar()
-        cursor = conn.cursor()
-
-
-        cursor.execute(
-            "DELETE FROM tarefas WHERE id = %s ",
-            (id_tarefa, )
-        )
-
-        conn.commit()
-        print("\nTarefa deletada com sucesso!")
-
-    except Exception as e:
-        print("\nErro ao deletar tarefa!")
-
-    finally:
-        if conn:
-            conn.close()
 
 def atualizar_descricao_tarefa(id_tarefa, nova_descricao):
     conn = None
@@ -74,10 +54,14 @@ def atualizar_descricao_tarefa(id_tarefa, nova_descricao):
         cursor.execute(
             "UPDATE tarefas SET descricao = %s WHERE id = %s",
             (nova_descricao, id_tarefa)
-    )
+        )
 
         conn.commit()
-        print("\nTarefa alterada com sucesso!")
+
+        if cursor.rowcount == 0:
+            print("\nRegistro não encontrado! Tente novamente!")
+        else:
+            print("\nDescrição da tarefa atualizada com sucesso!")
 
     except Exception as e:
         print("\nErro ao atualizar tarefa!")
@@ -85,6 +69,7 @@ def atualizar_descricao_tarefa(id_tarefa, nova_descricao):
     finally:
         if conn:
             conn.close()
+
 
 def atualizar_status_tarefa(id_tarefa, concluida):
     conn = None
@@ -96,13 +81,44 @@ def atualizar_status_tarefa(id_tarefa, concluida):
         cursor.execute(
             "UPDATE tarefas SET concluida = %s WHERE id = %s",
             (concluida, id_tarefa)
-    )
+        )
 
         conn.commit()
-        print("\nStatus da tarefa alterada com sucesso!")
+
+        if cursor.rowcount == 0:
+            print("\nRegistro não encontrado! Tente novamente!")
+        else:
+            print("\nStatus da tarefa alterado com sucesso!")
 
     except Exception as e:
         print("\nErro ao atualizar status da tarefa!")
+
+    finally:
+        if conn:
+            conn.close()
+
+
+def deletar_tarefa(id_tarefa):
+    conn = None
+
+    try:
+        conn = conectar()
+        cursor = conn.cursor()
+
+        cursor.execute(
+            "DELETE FROM tarefas WHERE id = %s ",
+            (id_tarefa,)
+        )
+
+        conn.commit()
+
+        if cursor.rowcount == 0:
+            print("\nRegistro não encontrado! Tente novamente!")
+        else:
+            print("\nTarefa deletada com sucesso!")
+
+    except Exception as e:
+        print("\nErro ao deletar tarefa!")
 
     finally:
         if conn:
