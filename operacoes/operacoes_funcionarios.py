@@ -1,4 +1,4 @@
-from conexao import conectar
+from database.conexao import conectar
 
 
 def listar_funcionarios():

@@ -1,6 +1,6 @@
-from operacoes_funcionarios import *
-from operacoes_projetos import *
-from operacoes_tarefas import *
+from operacoes.operacoes_funcionarios import *
+from operacoes.operacoes_projetos import *
+from operacoes.operacoes_tarefas import *
 
 
 def ler_numero(mensagem, tipo):
