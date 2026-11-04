@@ -2,6 +2,29 @@ from operacoes_funcionarios import *
 from operacoes_projetos import *
 from operacoes_tarefas import *
 
+
+def ler_numero(mensagem, tipo):
+    while True:
+        try:
+            valor = tipo(input(mensagem))
+            return valor
+        except ValueError:
+            if tipo == int:
+                print("\nValor incorreto! Digite apenas números inteiros!")
+            elif tipo == float:
+                print("\nValor incorreto! Digite um número, usando ponto nos decimais (ex: 3500.50)!")
+
+
+def ler_confirmacao(mensagem):
+    while True:
+        opcao = ler_numero(mensagem, int)
+
+        if opcao in (0, 1):
+            return opcao
+
+        print("\nDigite apenas 1 para Sim ou 0 para Não!")
+
+
 while True:
 
     print("\n   Gerenciador de Banco de dados   ")
@@ -26,8 +49,7 @@ while True:
     print("0 - Sair")
     print("=-" * 18)
 
-
-    escolha = int(input("\nDigite sua escolha: "))
+    escolha = ler_numero('\nDigite sua escolha: ', int)
 
     match escolha:
 
@@ -72,7 +94,7 @@ while True:
 
             nome = input("Nome: ")
             cargo = input("Cargo: ")
-            salario = float(input("Salário: "))
+            salario = ler_numero("Salário: ", float)
             departamento = input("Departamento: ")
             email = input("Email: ")
 
@@ -85,7 +107,7 @@ while True:
             print("=-" * 50)
 
             titulo = input("Título: ")
-            funcionario_id = int(input("Id do Funcionário: "))
+            funcionario_id = ler_numero('\nId do funcionário: ', int)
 
             cadastrar_projetos(titulo, funcionario_id)
             print("=-" * 50)
@@ -96,7 +118,7 @@ while True:
             print("=-" * 50)
 
             descricao = input("Descrição: ")
-            projeto_id = int(input("Id do projeto: "))
+            projeto_id = ler_numero("Id do projeto: ", int)
 
             cadastrar_tarefa(descricao, projeto_id)
             print("=-" * 50)
@@ -106,8 +128,8 @@ while True:
             print("\n Atualizar Salário:")
             print("=-" * 50)
 
-            id_funcionario = int(input("Id do funcionário: "))
-            novo_salario = float(input("Novo salário: "))
+            id_funcionario = ler_numero("Id do funcionário: ", int)
+            novo_salario = ler_numero("Novo salário: ", float)
 
             atualizar_salario(id_funcionario, novo_salario)
             print("=-" * 50)
@@ -117,7 +139,7 @@ while True:
             print("\n Atualizar Projeto:")
             print("=-" * 50)
 
-            id_projeto = int(input("Id do projeto: "))
+            id_projeto = ler_numero("Id do projeto: ", int)
             novo_titulo = input("Novo título: ")
 
             atualizar_projeto(id_projeto, novo_titulo)
@@ -128,9 +150,8 @@ while True:
             print("\n Atualizar descrição da tarefa:")
             print("=-" * 50)
 
-            id_tarefa = int(input("Id da tarefa: "))
+            id_tarefa = ler_numero("Id da tarefa: ", int)
             nova_descricao = input("Nova descrição: ")
-
 
             atualizar_descricao_tarefa(id_tarefa, nova_descricao)
             print("=-" * 50)
@@ -139,16 +160,12 @@ while True:
             print("\n Atualizar status da tarefa:")
             print("=-" * 50)
 
-            id_tarefa = int(input("Id da tarefa: "))
-            opcao = int(input("Concluída? (Sim = 1 | Não = 0): "))
+            id_tarefa = ler_numero("Id da tarefa: ", int)
+            opcao = ler_confirmacao("Concluída? (Sim = 1 | Não = 0): ")
 
-            if opcao in (0, 1):
-                concluida = opcao == 1
+            concluida = opcao == 1
 
-                atualizar_status_tarefa(id_tarefa, concluida)
-
-            else:
-                print("Digite apenas 1 para Sim ou 0 para Não!")
+            atualizar_status_tarefa(id_tarefa, concluida)
 
             print("=-" * 50)
 
@@ -157,18 +174,15 @@ while True:
             print("\n Deletar funcionário:")
             print("=-" * 50)
 
-            id_funcionario = int(input("Id do funcionário: "))
+            id_funcionario = ler_numero("Id do funcionário: ", int)
 
-            opcao = int(input("Tem certeza que deseja deletar esse funcionário? (Sim = 1 | Não = 0): "))
+            opcao = ler_confirmacao("Tem certeza que deseja deletar esse funcionário? (Sim = 1 | Não = 0): ")
 
             if opcao == 1:
                 deletar_funcionario(id_funcionario)
 
-            elif opcao == 0:
-                print("\n Exclusão cancelada!")
-
             else:
-                print("\n Digite apenas 1 para Sim ou 0 para Não!")
+                print("\n Exclusão cancelada!")
 
             print("=-" * 50)
 
@@ -177,18 +191,15 @@ while True:
             print("\n Deletar projeto:")
             print("=-" * 50)
 
-            id_projeto = int(input("Id do projeto: "))
+            id_projeto = ler_numero("Id do projeto: ", int)
 
-            opcao = int(input("Tem certeza que deseja deletar esse projeto? (Sim = 1 | Não = 0): "))
+            opcao = ler_confirmacao("Tem certeza que deseja deletar esse projeto? (Sim = 1 | Não = 0): ")
 
             if opcao == 1:
                 deletar_projeto(id_projeto)
 
-            elif opcao == 0:
-                print("\n Exclusão cancelada!")
-
             else:
-                print("\n Digite apenas 1 para Sim ou 0 para Não!")
+                print("\n Exclusão cancelada!")
 
             print("=-" * 50)
 
@@ -197,17 +208,17 @@ while True:
             print("\n Deletar tarefa:")
             print("=-" * 50)
 
-            id_tarefa = int(input("Id da tarefa: "))
+            id_tarefa = ler_numero("Id da tarefa: ", int)
 
-            opcao = int(input("Tem certeza que deseja deletar essa tarefa? (Sim = 1 | Não = 0): "))
+            opcao = ler_confirmacao("Tem certeza que deseja deletar essa tarefa? (Sim = 1 | Não = 0): ")
 
             if opcao == 1:
                 deletar_tarefa(id_tarefa)
 
-            elif opcao == 0:
+            else:
                 print("\n Exclusão cancelada!")
 
-            else:
-                print("\n Digite apenas 1 para Sim ou 0 para Não!")
-
             print("=-" * 50)
+
+        case _:
+            print("\nOpção inválida! Tente um número de 0 até 13 !\n")
