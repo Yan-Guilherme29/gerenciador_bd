@@ -14,6 +14,7 @@ def listar_tarefas():
 
     except Exception as e:
         print("\nErro ao listar tarefas!")
+        return []
 
     finally:
         if conn:

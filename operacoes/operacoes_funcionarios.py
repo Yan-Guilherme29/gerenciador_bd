@@ -15,6 +15,7 @@ def listar_funcionarios():
 
     except Exception as e:
         print("\nErro ao listar funcionários!")
+        return []
 
     finally:
         if conn:

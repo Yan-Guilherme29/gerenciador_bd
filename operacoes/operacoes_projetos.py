@@ -14,6 +14,7 @@ def listar_projetos():
 
     except Exception as e:
         print("\nErro ao listar projetos")
+        return []
 
     finally:
         if conn:
