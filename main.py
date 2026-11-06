@@ -109,7 +109,7 @@ while True:
             titulo = input("Título: ")
             funcionario_id = ler_numero('\nId do funcionário: ', int)
 
-            cadastrar_projetos(titulo, funcionario_id)
+            cadastrar_projeto(titulo, funcionario_id)
             print("=-" * 50)
 
         case 6:

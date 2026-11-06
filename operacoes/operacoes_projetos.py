@@ -1,5 +1,6 @@
 from database.conexao import conectar
 
+
 def listar_projetos():
     conn = None
 
@@ -13,15 +14,17 @@ def listar_projetos():
         return resultado
 
     except Exception as e:
-        print("\nErro ao listar projetos")
+        print("\nErro ao listar projetos!")
+        print(f"Motivo: {e}")
         return []
+
 
     finally:
         if conn:
             conn.close()
 
 
-def cadastrar_projetos(titulo, funcionario_id):
+def cadastrar_projeto(titulo, funcionario_id):
     conn = None
 
     try:
@@ -29,7 +32,7 @@ def cadastrar_projetos(titulo, funcionario_id):
         conn = conectar()
         cursor = conn.cursor()
 
-        cursor.execute (
+        cursor.execute(
             "INSERT INTO projetos (titulo, funcionario_id) VALUES (%s, %s)",
             (titulo, funcionario_id)
         )
@@ -39,10 +42,12 @@ def cadastrar_projetos(titulo, funcionario_id):
 
     except Exception as e:
         print("\nErro ao cadastrar projeto!")
+        print(f"Motivo: {e}")
 
     finally:
         if conn:
             conn.close()
+
 
 def atualizar_projeto(id_projeto, novo_titulo):
     conn = None
@@ -65,10 +70,12 @@ def atualizar_projeto(id_projeto, novo_titulo):
 
     except Exception as e:
         print("\nErro ao atualizar projeto!")
+        print(f"Motivo: {e}")
 
     finally:
         if conn:
             conn.close()
+
 
 def deletar_projeto(id_projeto):
     conn = None
@@ -94,6 +101,7 @@ def deletar_projeto(id_projeto):
 
     except Exception as e:
         print("\nErro ao deletar projeto!")
+        print(f"Motivo: {e}")
 
     finally:
         if conn:

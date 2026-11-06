@@ -15,6 +15,7 @@ def listar_funcionarios():
 
     except Exception as e:
         print("\nErro ao listar funcionários!")
+        print(f"Motivo: {e}")
         return []
 
     finally:
@@ -40,6 +41,7 @@ def cadastrar_funcionario(nome, cargo, salario, departamento, email):
 
     except Exception as e:
         print("\nErro ao cadastrar funcionário!")
+        print(f"Motivo: {e}")
 
     finally:
         if conn:
@@ -69,10 +71,12 @@ def atualizar_salario(id_funcionario, novo_salario):
 
     except Exception as e:
         print("\nErro ao atualizar salário!")
+        print(f"Motivo: {e}")
 
     finally:
         if conn:
             conn.close()
+
 
 def deletar_funcionario(id_funcionario):
     conn = None
@@ -98,6 +102,7 @@ def deletar_funcionario(id_funcionario):
 
     except Exception as e:
         print("\nErro ao deletar funcionário!")
+        print(f"Motivo: {e}")
 
     finally:
         if conn:

@@ -14,6 +14,7 @@ def listar_tarefas():
 
     except Exception as e:
         print("\nErro ao listar tarefas!")
+        print(f"Motivo: {e}")
         return []
 
     finally:
@@ -39,6 +40,7 @@ def cadastrar_tarefa(descricao, projeto_id):
 
     except Exception as e:
         print("\nErro ao cadastrar tarefa!")
+        print(f"Motivo: {e}")
 
     finally:
         if conn:
@@ -66,6 +68,7 @@ def atualizar_descricao_tarefa(id_tarefa, nova_descricao):
 
     except Exception as e:
         print("\nErro ao atualizar tarefa!")
+        print(f"Motivo: {e}")
 
     finally:
         if conn:
@@ -93,6 +96,7 @@ def atualizar_status_tarefa(id_tarefa, concluida):
 
     except Exception as e:
         print("\nErro ao atualizar status da tarefa!")
+        print(f"Motivo: {e}")
 
     finally:
         if conn:
@@ -120,6 +124,7 @@ def deletar_tarefa(id_tarefa):
 
     except Exception as e:
         print("\nErro ao deletar tarefa!")
+        print(f"Motivo: {e}")
 
     finally:
         if conn:
